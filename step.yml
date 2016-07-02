@@ -1,0 +1,33 @@
+title: "NVM"
+summary: Install NVM and select Node version
+description: |
+  Install NVM and select Node version
+  NVM = Node Version Manager - Simple bash script to manage multiple active node.js versions
+  See https://github.com/creationix/nvm
+website: https://github.com/almouro/bitrise-nvm-step
+source_code_url: https://github.com/almouro/bitrise-nvm-step
+support_url: https://github.com/almouro/bitrise-nvm-step/issues
+host_os_tags:
+  - osx-10.10
+project_type_tags:
+  - ios
+type_tags:
+  - script
+is_requires_admin_user: true
+is_always_run: false
+is_skippable: false
+inputs:
+  - nvm_version: v0.31.0
+    opts:
+      title: "NVM Version"
+      description: |
+        NVM version to be installed
+      is_expand: false
+      is_required: true
+  - node_version: 4.4.2
+    opts:
+      title: "Node version"
+      description: |
+        Node version to be installed
+      is_expand: false
+      is_required: true
