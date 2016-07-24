@@ -11,8 +11,6 @@ support_url: https://github.com/almouro/bitrise-nvm-step/issues
 host_os_tags:
   - osx
   - ubuntu
-project_type_tags:
-- react-native
 type_tags:
 - npm
 - node
