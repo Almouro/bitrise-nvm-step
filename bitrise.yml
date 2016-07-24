@@ -17,14 +17,23 @@ workflows:
         - is_create_path: true
     - path::./:
         title: Step Test
-        description: |-
-          The example input has a default value,
-          you can overwrite it if you want to, just like we did below,
-          but the step would use the default value specified in the `step.yml`
-          file if you would not specify another value.
         inputs:
         - nvm_version: 0.31.3
         - node_version: 4.4.2
+    - script@1.1.1:
+        title: Assert node version
+        inputs:
+        - content: "[ $(node --version) == 'v4.4.2' ]"
+    - script@1.1.1:
+        title: Install global module
+        inputs:
+        - content: |-
+            npm --version
+            npm install -g mocha
+    - script@1.1.1:
+        title: Check global module is available
+        inputs:
+        - content: mocha --help
 
 
   # ----------------------------------------------------------------

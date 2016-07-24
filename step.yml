@@ -25,7 +25,7 @@ inputs:
         NVM version to be installed
       is_expand: false
       is_required: true
-  - node_version: 4.4.2
+  - node_version: 6.3.1
     opts:
       title: "Node version"
       description: |
