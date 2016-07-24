@@ -8,7 +8,8 @@ website: https://github.com/almouro/bitrise-nvm-step
 source_code_url: https://github.com/almouro/bitrise-nvm-step
 support_url: https://github.com/almouro/bitrise-nvm-step/issues
 host_os_tags:
-  - osx-10.10
+  - osx
+  - ubuntu
 project_type_tags:
   - ios
 type_tags:

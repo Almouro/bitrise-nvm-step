@@ -1,6 +1,9 @@
 #!/bin/bash
 
-touch ~/.bash_profile
-curl -o- https://raw.githubusercontent.com/creationix/nvm/${nvm_version}/install.sh | bash
-source ~/.bash_profile
+PROFILE=$HOME/.profile
+touch $PROFILE
+curl -o- https://raw.githubusercontent.com/creationix/nvm/${nvm_version}/install.sh | PROFILE=$PROFILE bash
+source $PROFILE
 nvm install ${node_version}
+
+envman add --key PATH --value $PATH
