@@ -30,12 +30,19 @@ inputs:
       description: |
         node.js version that NVM will install.
 
-        You can use a version pointer like `6`, `6.3` or `6.3.1`.
+        You can use a version pointer like:
+        
+        - `6`
+        - `6.3`
+        - `6.3.1`
+        
         You can also use the NVM version aliases like:
+        
         - `node`: this installs the latest version of [`node`](https://nodejs.org/en/)
 
         If no version is specified:
-        - if a `.nvmrc` is present, the version it specifies will be installs
+        
+        - if a `.nvmrc` is present, the version it specifies will be installed
         - otherwise, the latest node version will be installed
 
         More info on NVM aliases [here](https://github.com/creationix/nvm#usage)
