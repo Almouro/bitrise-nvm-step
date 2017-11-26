@@ -34,6 +34,10 @@ inputs:
         You can also use the NVM version aliases like:
         - `node`: this installs the latest version of [`node`](https://nodejs.org/en/)
 
+        If no version is specified:
+        - if a `.nvmrc` is present, the version it specifies will be installs
+        - otherwise, the latest node version will be installed
+
         More info on NVM aliases [here](https://github.com/creationix/nvm#usage)
       is_expand: false
       is_required: false
