@@ -18,14 +18,14 @@ is_requires_admin_user: true
 is_always_run: false
 is_skippable: false
 inputs:
-  - nvm_version: 0.31.3
+  - nvm_version: 0.33.6
     opts:
       title: "NVM Version"
       description: |
         NVM version to be installed
       is_expand: false
       is_required: true
-  - node_version: 6.3.1
+  - node_version:
     opts:
       title: "Node version"
       description: |
@@ -37,4 +37,4 @@ inputs:
 
         More info on NVM aliases [here](https://github.com/creationix/nvm#usage)
       is_expand: false
-      is_required: true
+      is_required: false

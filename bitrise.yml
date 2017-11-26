@@ -20,20 +20,43 @@ workflows:
         inputs:
         - nvm_version: 0.31.3
         - node_version: 4.4.2
-    - script@1.1.1:
+    - script@1.1.5:
         title: Assert node version
         inputs:
         - content: "[ $(node --version) == 'v4.4.2' ]"
-    - script@1.1.1:
+    - script@1.1.5:
         title: Install global module
         inputs:
         - content: |-
             npm --version
             npm install -g mocha
-    - script@1.1.1:
+    - script@1.1.5:
         title: Check global module is available
         inputs:
         - content: mocha --help
+
+    - script@1.1.5:
+        title: Add .nvmrc
+        inputs:
+        - content: "rm -rf .nvmrc && echo '7.7.2' > .nvmrc"
+    - path::./:
+        title: Run step
+    - script@1.1.5:
+        title: Assert .nvmrc is honored if node version input is not passed
+        inputs:
+        - content: "node --version && [ $(node --version) == 'v7.7.2' ]"
+
+    - script@1.1.5:
+        title: Add .nvmrc
+        inputs:
+        - content: "rm -rf .nvmrc"
+    - path::./:
+        title: Run step
+    - script@1.1.5:
+        title: Assert node is installed if node version input is not passed and no .nvmrc is found
+        inputs:
+    # This is the latest version at the moment
+        - content: "node --version && [ $(node --version) == 'v9.2.0' ]"
 
 
   # ----------------------------------------------------------------
