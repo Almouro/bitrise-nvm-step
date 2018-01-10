@@ -17,6 +17,12 @@ is_requires_admin_user: true
 is_always_run: false
 is_skippable: false
 inputs:
+  - working_dir: $BITRISE_SOURCE_DIR
+    opts:
+      title: Working directory
+      description: |
+        Working directory of the step.
+        You can leave it empty to not change it.
   - nvm_version: 0.33.6
     opts:
       title: "NVM Version"
@@ -31,17 +37,17 @@ inputs:
         node.js version that NVM will install.
 
         You can use a version pointer like:
-        
+
         - `6`
         - `6.3`
         - `6.3.1`
-        
+
         You can also use the NVM version aliases like:
-        
+
         - `node`: this installs the latest version of [`node`](https://nodejs.org/en/)
 
         If no version is specified:
-        
+
         - if a `.nvmrc` is present, the version it specifies will be installed
         - otherwise, the latest node version will be installed
 
