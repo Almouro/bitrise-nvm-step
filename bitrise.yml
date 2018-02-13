@@ -15,9 +15,15 @@ workflows:
         inputs:
         - path: ./_tmp
         - is_create_path: true
+    - script@1.1.5:
+        title: Add test working dir
+        inputs:
+        - content: "mkdir -p test"
+
     - path::./:
         title: Step Test
         inputs:
+        - working_dir: ./_tmp/test
         - nvm_version: 0.31.3
         - node_version: 4.4.2
     - script@1.1.5:
@@ -38,7 +44,7 @@ workflows:
     - script@1.1.5:
         title: Add .nvmrc
         inputs:
-        - content: "rm -rf .nvmrc && echo '7.7.2' > .nvmrc"
+        - content: "rm -f ./test/.nvmrc && echo '7.7.2' > ./test/.nvmrc"
     - path::./:
         title: Run step
     - script@1.1.5:
@@ -47,16 +53,16 @@ workflows:
         - content: "node --version && [ $(node --version) == 'v7.7.2' ]"
 
     - script@1.1.5:
-        title: Add .nvmrc
+        title: Remove .nvmrc
         inputs:
-        - content: "rm -rf .nvmrc"
+        - content: "rm -f ./test/.nvmrc"
     - path::./:
         title: Run step
     - script@1.1.5:
         title: Assert node is installed if node version input is not passed and no .nvmrc is found
         inputs:
     # This is the latest version at the moment
-        - content: "node --version && [ $(node --version) == 'v9.2.0' ]"
+        - content: "node --version && [ $(node --version) == 'v9.4.0' ]"
 
 
   # ----------------------------------------------------------------
