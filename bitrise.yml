@@ -15,15 +15,10 @@ workflows:
         inputs:
         - path: ./_tmp
         - is_create_path: true
-    - script@1.1.5:
-        title: Add test working dir
-        inputs:
-        - content: "mkdir -p test"
 
     - path::./:
         title: Step Test
         inputs:
-        - working_dir: ./_tmp/test
         - nvm_version: 0.31.3
         - node_version: 4.4.2
     - script@1.1.5:
@@ -44,7 +39,7 @@ workflows:
     - script@1.1.5:
         title: Add .nvmrc
         inputs:
-        - content: "rm -f ./test/.nvmrc && echo '7.7.2' > ./test/.nvmrc"
+        - content: "rm -f ./.nvmrc && echo '7.7.2' > ./.nvmrc"
     - path::./:
         title: Run step
     - script@1.1.5:
@@ -55,14 +50,27 @@ workflows:
     - script@1.1.5:
         title: Remove .nvmrc
         inputs:
-        - content: "rm -f ./test/.nvmrc"
+        - content: "rm -f ./.nvmrc"
     - path::./:
         title: Run step
     - script@1.1.5:
         title: Assert node is installed if node version input is not passed and no .nvmrc is found
         inputs:
     # This is the latest version at the moment
-        - content: "node --version && [ $(node --version) == 'v9.4.0' ]"
+        - content: "node --version && [ $(node --version) == 'v9.5.0' ]"
+
+    - script@1.1.5:
+        title: Add .nvmrc to test subfolder
+        inputs:
+        - content: "mkdir -p test && rm -f ./test/.nvmrc && echo '8.0.0' > ./test/.nvmrc"
+    - path::./:
+        title: Run step
+        inputs:
+        - working_dir: ./test
+    - script@1.1.5:
+        title: Assert .nvmrc is honored if it is in the working dir
+        inputs:
+        - content: "node --version && [ $(node --version) == 'v8.0.0' ]"
 
 
   # ----------------------------------------------------------------
