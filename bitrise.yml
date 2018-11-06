@@ -57,7 +57,7 @@ workflows:
         title: Assert node is installed if node version input is not passed and no .nvmrc is found
         inputs:
     # This is the latest version at the moment
-        - content: "node --version && [ $(node --version) == 'v9.5.0' ]"
+        - content: "node --version && [ $(node --version) == 'v11.1.0' ]"
 
     - script@1.1.5:
         title: Add .nvmrc to test subfolder
