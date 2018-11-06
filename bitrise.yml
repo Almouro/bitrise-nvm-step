@@ -73,6 +73,23 @@ workflows:
         - content: "node --version && [ $(node --version) == 'v8.0.0' ]"
 
 
+    - script@1.1.5:
+        title: Add env variables NVM_VERSION and NODE_VERSION
+        inputs:
+        - content: |-
+            envman add --key NVM_VERSION --value 0.31.0
+            envman add --key NODE_VERSION --value 5.0.0
+    - path::./:
+        title: Step Test
+        inputs:
+        - nvm_version: "$NVM_VERSION"
+        - node_version: "$NODE_VERSION"
+    - script@1.1.5:
+        title: Assert node version is passed from environment variables
+        inputs:
+        - content: "[ $(node --version) == 'v5.0.0' ]"
+
+
   # ----------------------------------------------------------------
   # --- workflows to Share this step into a Step Library
   share-this-step:

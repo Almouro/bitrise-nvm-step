@@ -28,7 +28,7 @@ inputs:
       title: "NVM Version"
       description: |
         NVM version to be installed
-      is_expand: false
+      is_expand: true
       is_required: true
   - node_version:
     opts:
@@ -52,5 +52,5 @@ inputs:
         - otherwise, the latest node version will be installed
 
         More info on NVM aliases [here](https://github.com/creationix/nvm#usage)
-      is_expand: false
+      is_expand: true
       is_required: false
