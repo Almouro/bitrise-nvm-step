@@ -23,7 +23,7 @@ inputs:
       description: |
         Working directory of the step.
         You can leave it empty to not change it.
-  - nvm_version: 0.33.6
+  - nvm_version: 0.35.3
     opts:
       title: "NVM Version"
       description: |
