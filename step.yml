@@ -4,7 +4,7 @@ description: |
   This step will install a specific node.js version using NVM, and will make it available for all your other steps.
 
   NVM (Node Version Manager) is a simple bash script to manage multiple active node.js versions.
-  See [here](https://github.com/creationix/nvm) for more details.
+  See [here](https://github.com/nvm-sh/nvm) for more details.
 website: https://github.com/almouro/bitrise-nvm-step
 source_code_url: https://github.com/almouro/bitrise-nvm-step
 support_url: https://github.com/almouro/bitrise-nvm-step/issues
@@ -51,6 +51,6 @@ inputs:
         - if a `.nvmrc` is present, the version it specifies will be installed
         - otherwise, the latest node version will be installed
 
-        More info on NVM aliases [here](https://github.com/creationix/nvm#usage)
+        More info on NVM aliases [here](https://github.com/nvm-sh/nvm#usage)
       is_expand: true
       is_required: false
