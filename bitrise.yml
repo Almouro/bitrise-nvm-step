@@ -20,11 +20,11 @@ workflows:
         title: Step Test
         inputs:
         - nvm_version: 0.35.2
-        - node_version: 4.4.2
+        - node_version: 12.16.2
     - script@1.1.5:
         title: Assert node version
         inputs:
-        - content: "[ $(node --version) == 'v4.4.2' ]"
+        - content: "[ $(node --version) == 'v12.16.2' ]"
     - script@1.1.5:
         title: Install global module
         inputs:
