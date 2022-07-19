@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Install NVM
 PROFILE=$HOME/.profile
 touch $PROFILE
