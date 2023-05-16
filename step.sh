@@ -21,3 +21,7 @@ if [[ -z "$node_version" && ! -e "./.nvmrc" ]]; then node_version="node"; fi
 nvm install ${node_version}
 
 envman add --key PATH --value $PATH
+
+# using set -e earlier caused issues, so at least check if the install succeeded at the end
+set -e
+node --version
